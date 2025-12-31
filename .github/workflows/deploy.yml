@@ -1,0 +1,68 @@
+# GitHub Pages へのデプロイ用ワークフロー
+# 手動実行のみ。CIを実行した後にデプロイする。
+name: Deploy to GitHub Pages
+
+on:
+  # 手動実行のみ（Actionsタブから実行）
+  workflow_dispatch:
+
+# GitHub Pages へのデプロイを許可
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時実行を制御（1つのデプロイのみ実行）
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  # まずテストとビルドを実行（テストが通らないとデプロイしない）
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  # ビルドジョブ（テスト成功後に実行）
+  build:
+    runs-on: ubuntu-latest
+    needs: ci
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.0'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build prefecture features
+        run: npm run build:pref
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  # デプロイジョブ（ビルド成功後に実行）
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

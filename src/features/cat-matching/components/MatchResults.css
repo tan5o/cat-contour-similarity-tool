@@ -1,0 +1,263 @@
+.result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.result-list-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem;
+}
+
+.result-cat-shape {
+  padding: 0.75rem;
+  border: 1px solid #dde5ff;
+  background: #f7f9ff;
+  border-radius: 10px;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.result-cat-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2d3a8c;
+}
+
+.result-cat-preview {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px dashed #cbd6ff;
+}
+
+.result-cat-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.result-cat-image path {
+  fill: none;
+  stroke: #4c5bd4;
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.result-list-empty {
+  text-align: center;
+  padding: 2rem;
+  color: #999;
+}
+
+.result-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.result-item:hover {
+  background: #f0f4ff;
+  transform: translateX(4px);
+}
+
+.result-item.selected {
+  background: #e8edff;
+  border-color: #667eea;
+}
+
+.result-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.result-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.result-preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.result-preview-image path {
+  fill: none;
+  stroke: #667eea;
+  stroke-width: 0.02;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.result-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.result-name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.result-name-ja {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.result-name-en {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.result-score {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.result-score strong {
+  color: #667eea;
+  font-weight: 700;
+}
+
+.result-description {
+  font-size: 0.75rem;
+  color: #999;
+  font-style: italic;
+}
+
+.result-details-toggle {
+  margin-top: 0.4rem;
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid #d4d8f7;
+  color: #3949ab;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.result-details-toggle:hover {
+  background: #eef1ff;
+  border-color: #c1c8ff;
+}
+
+.result-details {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+  border: 1px solid #dde5ff;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.result-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.85rem;
+  color: #334;
+  margin-bottom: 0.4rem;
+}
+
+.result-details-score {
+  font-weight: 700;
+  color: #4c5bd4;
+}
+
+.result-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.35rem 0.75rem;
+}
+
+.result-details-cnn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.result-details-cnn-preview {
+  border: 1px dashed #d5dbff;
+  border-radius: 6px;
+  background: #fafbff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  width: fit-content;
+}
+
+.result-details-cnn-preview canvas {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.result-details-grid div {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.82rem;
+  color: #445;
+}
+
+.result-toggle-all {
+  align-self: flex-start;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #d4d8f7;
+  background: #ffffff;
+  color: #3949ab;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.result-toggle-all:hover {
+  background: #eef1ff;
+  border-color: #c1c8ff;
+}
+
+.result-detail-label {
+  font-weight: 700;
+  color: #2d3a8c;
+}
+
+.result-detail-value {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.8rem;
+  color: #223;
+}

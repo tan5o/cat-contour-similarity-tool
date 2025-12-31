@@ -1,0 +1,148 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.control-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.control-info {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #b9c2f6;
+  color: #4c5bd4;
+  font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  position: relative;
+  background: #fff;
+}
+
+.control-info::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 6px);
+  transform: translateX(-50%);
+  min-width: 220px;
+  max-width: 320px;
+  white-space: normal;
+  background: #2b2f55;
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+  transition: opacity 0.15s ease;
+  z-index: 2;
+}
+
+.control-info:hover::after {
+  opacity: 1;
+}
+
+.control-value {
+  font-size: 0.9rem;
+  color: #4d4d4d;
+}
+
+.control-group-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 0.25rem;
+}
+
+.slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  border: none;
+}
+
+.select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  background: white;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.control-advanced {
+  border: 1px dashed #d0d0d0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  background: #fff;
+}
+
+.control-advanced[open] {
+  border-color: #c1c6e8;
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.08);
+}
+
+.control-advanced-summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #2b2f55;
+  list-style: none;
+}
+
+.control-advanced-summary::-webkit-details-marker {
+  display: none;
+}

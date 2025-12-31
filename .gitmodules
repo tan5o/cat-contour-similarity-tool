@@ -1,0 +1,3 @@
+[submodule "vendor/dataofjapan-land"]
+	path = vendor/dataofjapan-land
+	url = https://github.com/dataofjapan/land.git
