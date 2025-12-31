@@ -1,0 +1,39 @@
+# 自動Approve ワークフロー（安全設計）
+#
+# ## セキュリティ設計
+# - pull_request_target を使用（write権限が必要なため）
+# - PRのコードをcheckoutしない（重要：乗っ取り防止）
+# - OWNERのPRのみ自動Approve（外部PRは手動レビュー）
+#
+# ## 適用条件
+# OWNER による PR（opened/reopened/ready_for_review/synchronize時）→ 自動Approve
+# ※ OWNER が新しいコミットを push した場合も自動で再承認される
+#
+# ## 必要なリポジトリ設定
+# Settings → Actions → General → Workflow permissions:
+# - "Read and write permissions" を選択
+# - "Allow GitHub Actions to create and approve pull requests" を ON
+
+name: Auto Approve (trusted only)
+
+on:
+  pull_request_target:
+    types: [opened, reopened, ready_for_review, synchronize]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  approve:
+    # pull_request_target は危険になり得るので、必ず条件で絞る
+    if: |
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.base.ref == 'main' &&
+      github.event.pull_request.author_association == 'OWNER'
+    runs-on: ubuntu-latest
+    steps:
+      # ❌ PRコードのcheckoutは絶対にしない（セキュリティ上必須）
+      - name: Auto Approve PR
+        uses: hmarr/auto-approve-action@b6a5360c103e255aa87be513de4e2866099f52f0 # v4.3.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
