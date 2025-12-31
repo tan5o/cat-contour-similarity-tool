@@ -55,6 +55,14 @@ export function CatMatchingPage() {
       <header className="header">
         <h1>猫に似ている都道府県を探すツール</h1>
         <p>猫の輪郭から類似する都道府県を見つけよう</p>
+        <a
+          href="https://github.com/tan5o/cat-contour-similarity-tool"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="github-link"
+        >
+          📦 Source Code on GitHub
+        </a>
       </header>
 
       <div className="info-card">

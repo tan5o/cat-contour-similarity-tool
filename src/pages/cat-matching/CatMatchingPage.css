@@ -81,6 +81,23 @@ body {
   margin: 0;
 }
 
+.github-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #667eea;
+  text-decoration: none;
+  border: 1px solid #667eea;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.github-link:hover {
+  background: #667eea;
+  color: #fff;
+}
+
 .main-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
