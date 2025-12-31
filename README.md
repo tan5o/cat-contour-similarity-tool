@@ -2,7 +2,7 @@
 
 ![Cat Contour Similarity Tool hero](public/assets/readme-hero.jpg)
 
-**🐱 [Live Demo](https://tan5o.github.io/cat-contour-similarity-tool/)**
+**🐱 [Open App](https://tan5o.github.io/cat-contour-similarity-tool/)**
 
 猫の画像から輪郭を抽出し、形状が似ている日本の都道府県を探すWebアプリケーションです。
 画像処理と推論はすべてブラウザ上（クライアントサイド）で実行されるため、画像データが外部サーバーに送信されることはありません。

@@ -17,6 +17,8 @@ test.describe('初期表示', () => {
     const catPage = new CatMatchingPage(page);
     await catPage.goto();
 
+    // GitHubリンク → 画像入力の順でフォーカスが移動する
+    await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await expect(catPage.imageInput).toBeFocused();
   });
